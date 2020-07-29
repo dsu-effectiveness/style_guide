@@ -1,0 +1,106 @@
+---
+title: "Data Publications Style Guide"
+output:
+  html_document:
+    highlight: tango
+    theme: journal
+    toc: yes
+    toc_depth: 2
+    toc_float:
+      collapsed: no
+---
+
+```{r, include = FALSE}
+# A good RStudio tutorial for RMarkdown docs is available here
+# https://rstudio4edu.github.io/rstudio4edu-book/intro-doc.html
+```
+
+
+```{css echo=FALSE}
+/* Define a margin for the title header */
+  
+  @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+  
+  
+  .title.toc-ignore {
+    padding-top: 10px;
+    color: #A6002B;
+    font-family: "News Cycle","Arial Narrow Bold",sans-serif;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  .author {
+    font-weight: normal;
+    font-style: italic;
+  }
+  
+  .list-group-item.active {
+    background-color: #BA1C21
+  }
+  .list-group-item.active:hover, .list-group-item.active:focus {
+    background-color: #CA5051
+  }
+
+``` 
+
+```{r, setup, include=FALSE}
+knitr::opts_chunk$set(fig.width = 8, collapse = TRUE, echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r libraries}
+library(RColorBrewer)
+library(scales)
+library(shiny)
+```
+
+
+# Color Palettes
+```{r}
+wellPanel(lorem::ipsum(paragraphs = 1, sentences = 10))
+```
+
+
+## College color palette
+
+Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque. Facilisis eu nisi risus leo molestie taciti penatibus congue luctus taciti. Nullam neque pharetra nunc cum dis quis sed curae curae blandit luctus.
+
+```{r}
+colleges <- c('#7cbdc9', '#5fa5cd', '#003b68', '#20d5cf', '#7bb77b', '#356629')
+names(colleges) <- c('CHASS', 'CSET', 'CSET', 'COFA', 'COB', 'COHS')
+
+show_col(colleges)
+```
+
+
+## Twenty color palette
+
+Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque. Facilisis eu nisi risus leo molestie taciti penatibus congue luctus taciti. Nullam neque pharetra nunc cum dis quis sed curae curae blandit luctus.
+
+```{r}
+twenty_pallette <- c('#20d5cf', '#5fa5cd', '#3c8dbc', '#009ABB', '#003b68',
+                   '#019c86', '#7bb77b', '#80982A', '#356629', '#556222',
+                   '#cccccc', '#AABEC6', '#7cbdc9', '#666666', '#333333',
+                   '#EED384', '#eda48e', '#947fa0', '#96394E', '#B5302A')
+
+show_col(twenty_pallette)
+```
+
+
+# Fonts
+
+## Headers
+
+Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque. Facilisis eu nisi risus leo molestie taciti penatibus congue luctus taciti. Nullam neque pharetra nunc cum dis quis sed curae curae blandit luctus. Interdum suspendisse donec vestibulum tortor convallis mi tortor est morbi gravida posuere netus blandit montes. Cubilia lobortis pharetra facilisis per leo porta. Tortor malesuada parturient viverra vestibulum. Aptent sagittis interdum hac erat primis sodales proin laoreet fringilla vel duis! Quisque non aptent condimentum nibh hac eleifend velit senectus! Fringilla tristique pharetra hendrerit?
+
+<p style = 'font-family: "Lobster"; font-size: 22px;'>Hi Mom</p>
+<p style = 'font-family: "Rock Salt"; 
+            font-size: 32px;
+            font-weight:900;
+            color: #000000;'>Hello from the underground.</p>
+
+
+## Titles
+
+Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque. Facilisis eu nisi risus leo molestie taciti penatibus congue luctus taciti. Nullam neque pharetra nunc cum dis quis sed curae curae blandit luctus. Interdum suspendisse donec vestibulum tortor convallis mi tortor est morbi gravida posuere netus blandit montes. Cubilia lobortis pharetra facilisis per leo porta. Tortor malesuada parturient viverra vestibulum. Aptent sagittis interdum hac erat primis sodales proin laoreet fringilla vel duis! Quisque non aptent condimentum nibh hac eleifend velit senectus! Fringilla tristique pharetra hendrerit?
