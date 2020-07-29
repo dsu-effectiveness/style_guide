@@ -57,6 +57,8 @@ library(shiny)
 
 
 # Color Palettes
+
+Joy was here.
 ```{r}
 wellPanel(lorem::ipsum(paragraphs = 1, sentences = 10))
 ```
