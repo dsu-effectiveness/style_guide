@@ -104,3 +104,77 @@ Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elem
 ## Titles
 
 Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque. Facilisis eu nisi risus leo molestie taciti penatibus congue luctus taciti. Nullam neque pharetra nunc cum dis quis sed curae curae blandit luctus. Interdum suspendisse donec vestibulum tortor convallis mi tortor est morbi gravida posuere netus blandit montes. Cubilia lobortis pharetra facilisis per leo porta. Tortor malesuada parturient viverra vestibulum. Aptent sagittis interdum hac erat primis sodales proin laoreet fringilla vel duis! Quisque non aptent condimentum nibh hac eleifend velit senectus! Fringilla tristique pharetra hendrerit?
+
+# Plots
+
+Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque. Facilisis eu nisi risus leo molestie taciti penatibus congue luctus taciti. Nullam neque pharetra nunc cum dis quis sed curae curae blandit luctus. Interdum suspendisse donec vestibulum tortor convallis mi tortor est morbi gravida posuere netus blandit montes. Cubilia lobortis pharetra facilisis per leo porta. Tortor malesuada parturient viverra vestibulum. Aptent sagittis interdum hac erat primis sodales proin laoreet fringilla vel duis! Quisque non aptent condimentum nibh hac eleifend velit senectus! Fringilla tristique pharetra hendrerit?
+
+## Pie chart
+
+When you make a pie chart, Yoda is disappointed. Make Yoda happy and drop the pie chart.
+
+![](https://media.giphy.com/media/33iqmp5ATXT5m/giphy.gif)
+
+<br>
+
+## Doughnut chart
+
+
+![](https://media.giphy.com/media/l2YWxte7sJB2XuE8M/giphy.gif)
+
+<br>
+<br>
+
+```{r}
+library(plotly)
+library(dplyr)
+
+# Get Manufacturer
+mtcars$manuf <- sapply(strsplit(rownames(mtcars), " "), "[[", 1)
+
+df <- mtcars
+df <- df %>% group_by(manuf)
+df <- df %>% summarize(count = n())
+fig <- df %>% plot_ly(labels = ~manuf, values = ~count)
+fig <- fig %>% add_pie(hole = 0.6)
+fig <- fig %>% layout(title = "Doughnut chart",  showlegend = F,
+                      xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+                      yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE))
+
+fig
+```
+
+
+## Hover Text
+
+Elit vestibulum mollis sagittis ornare aptent etiam sed sollicitudin auctor elementum? Quis fusce aenean lacus justo nisi imperdiet velit urna condimentum pellentesque.
+
+```{r}
+library(plotly)
+
+fig <- plot_ly() 
+fig <- fig %>%
+  add_trace(
+    type = 'scatter',
+    mode = 'lines+markers',
+    x = c(1,2,3,4,5),
+    y = c(2.02825,1.63728,6.83839,4.8485,4.73463),
+    text = c("Text A", "Text B", "Text C", "Text D", "Text E"),
+    hovertemplate = paste('<i>Price</i>: $%{y:.2f}',
+                        '<br><b>X</b>: %{x}<br>',
+                        '<b>%{text}</b>'),
+    showlegend = FALSE
+  ) 
+fig <- fig %>%
+  add_trace(
+    type = 'scatter',
+    mode = 'lines+markers',
+    x = c(1,2,3,4,5),
+    y = c(3.02825,2.63728,4.83839,3.8485,1.73463),
+    hovertemplate = 'Price: %{y:$.2f}<extra></extra>',
+    showlegend = FALSE
+  )
+
+fig
+```
+
